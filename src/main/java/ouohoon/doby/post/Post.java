@@ -1,5 +1,6 @@
 package ouohoon.doby.post;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
@@ -11,10 +12,10 @@ import java.util.List;
 
 @Entity
 @Getter
-@NoArgsConstructor
 public class Post {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     @Column(name = "post_id")
     private Long id;
 
@@ -29,4 +30,10 @@ public class Post {
 
     @OneToMany(mappedBy = "post")
     private List<Comment> comments;
+
+    @Builder
+    public Post(String title, String content) {
+        this.title = title;
+        this.content = content;
+    }
 }
