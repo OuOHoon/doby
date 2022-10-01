@@ -12,6 +12,7 @@ import java.util.List;
 
 @Entity
 @Getter
+@NoArgsConstructor
 public class Post {
 
     @Id
@@ -19,14 +20,14 @@ public class Post {
     @Column(name = "post_id")
     private Long id;
 
-    @Column(length = 200)
+    @Column(length = 100)
     private String title;
     @Column(length = 1000)
     private String content;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
-    private Member member;
+    private Member author;
 
     @OneToMany(mappedBy = "post")
     private List<Comment> comments;
@@ -35,5 +36,17 @@ public class Post {
     public Post(String title, String content) {
         this.title = title;
         this.content = content;
+    }
+
+    public void updateTitle(String title) {
+        this.title = title;
+    }
+
+    public void updateContent(String content) {
+        this.content = content;
+    }
+    public void changeAuthor(Member author) {
+        author.getPosts().add(this);
+        this.author = author;
     }
 }
