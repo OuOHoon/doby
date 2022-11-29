@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/bootstrap.min.css}">
+    <title>Doby</title>
+</head>
+<body>
+<div class="container">
+    <a th:href="@{/logout}">로그아웃</a>
+    <a th:href="@{/post/write}">게시글 쓰기</a>
+</div>
+
+</body>
+</html>

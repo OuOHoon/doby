@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${'도비 : 로그인'}">Doby : 로그인</title>
+</head>
+<body>
+로그인페이지입니다
+<form action="/login" method="post">
+    <input name="username" th:placeholder="아이디" type="text"/>
+    <input name="password" th:placeholder="비밀번호" type="password"/>
+    <input type="submit"/>
+</form>
+<a th:href="@{/}">네이버 로그인</a>
+<a th:href="@{/}">카카오 로그인</a>
+<a th:href="@{/join}">회원 가입</a>
+</body>
+</html>

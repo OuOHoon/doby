@@ -1,20 +1,25 @@
 package ouohoon.doby.post;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/posts")
 public class PostController {
 
+    private PostService postService;
+
+    public PostController(PostService postService) {
+        this.postService = postService;
+    }
 
     /**
      * 게시글 저장
      *
      */
-    @PostMapping
-    public String save(@ModelAttribute PostSaveForm postSaveForm, Model model) {
+    @PostMapping("/{category}")
+    public String save() {
         
 
         return "redirect:/";
@@ -24,10 +29,16 @@ public class PostController {
      *
      * @return
      */
-    @GetMapping
-    public String posts() {
+    @GetMapping("/{category}")
+    public String posts(@PathVariable String category, Integer offset, Integer limit) {
 
         return "";
+    }
+
+    @GetMapping("/{postId}")
+    public String post(@PathVariable Long postId,
+                       ModelAndView mv) {
+        return "ok";
     }
 
     /**
