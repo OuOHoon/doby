@@ -1,18 +1,18 @@
-package ouohoon.doby.post;
+package ouohoon.doby.post.model;
 
+import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import ouohoon.doby.comment.Comment;
-import ouohoon.doby.member.Member;
+import ouohoon.doby.member.model.Member;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Getter
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Post {
 
     @Id

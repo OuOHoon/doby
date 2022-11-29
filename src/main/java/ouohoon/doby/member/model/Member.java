@@ -1,10 +1,11 @@
-package ouohoon.doby.member;
+package ouohoon.doby.member.model;
 
+import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
 import ouohoon.doby.comment.Comment;
-import ouohoon.doby.post.Post;
+import ouohoon.doby.post.model.Post;
 import ouohoon.doby.security.Role;
 
 import javax.persistence.*;
@@ -13,6 +14,7 @@ import java.util.List;
 
 @Getter
 @Entity
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Member {
 
     @Id
@@ -40,4 +42,17 @@ public class Member {
 
     @OneToMany(mappedBy = "author")
     private List<Comment> comments = new ArrayList<>();
+
+    @Builder
+    public Member(Role role) {
+        this.role = role;
+    }
+
+    public void changeSocialLogin(MemberSocialLogin memberSocialLogin) {
+        this.socialLogin = memberSocialLogin;
+    }
+
+    public void changeFormLogin(MemberFormLogin memberFormLogin) {
+        this.formLogin = memberFormLogin;
+    }
 }

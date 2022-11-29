@@ -1,16 +1,17 @@
 package ouohoon.doby.comment;
 
+import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import ouohoon.doby.member.Member;
-import ouohoon.doby.post.Post;
+import ouohoon.doby.member.model.Member;
+import ouohoon.doby.post.model.Post;
 
 import javax.persistence.*;
 
 @Entity
 @Getter
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Comment {
 
     @Id @GeneratedValue

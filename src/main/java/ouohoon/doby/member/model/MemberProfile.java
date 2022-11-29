@@ -1,6 +1,8 @@
-package ouohoon.doby.member;
+package ouohoon.doby.member.model;
 
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.Column;
@@ -11,6 +13,7 @@ import java.time.LocalDateTime;
 
 @Getter
 @Entity
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class MemberProfile {
 
     @Id @GeneratedValue
